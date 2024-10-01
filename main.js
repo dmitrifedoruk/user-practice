@@ -18,16 +18,19 @@ document.querySelector('#app').innerHTML = `
 
   </div>
 `
+async function send() {
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
 
-const myHeaders = new Headers();
-myHeaders.append("Content-Type", "application/json");
+    const response = await fetch("/api/test", {
+        method: "POST",
+        body: JSON.stringify({ username: "example" }),
+        headers: myHeaders,
+    });
+}
 
-const response = await fetch("/api/test", {
-    method: "POST",
-    body: JSON.stringify({ username: "example" }),
-    headers: myHeaders,
-});
-
+document.querySelector("#submitButton").addEventListener('click',() =>
+send());
 
 
 
