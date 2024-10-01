@@ -29,8 +29,7 @@ async function send() {
     });
 }
 
-document.querySelector("#submitButton").addEventListener('click',() =>
-send());
+document.querySelector("#submitButton").addEventListener('click',send,false);
 
 
 
