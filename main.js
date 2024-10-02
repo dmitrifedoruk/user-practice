@@ -1,5 +1,6 @@
 import './style.css'
 import bcrypt from 'bcryptjs';
+import axios from "axios";
 
 
 document.querySelector('#app').innerHTML = `
@@ -18,6 +19,25 @@ document.querySelector('#app').innerHTML = `
 
   </div>
 `
+
+async function getUser() {
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    try {
+        const response = await axios.post('/api/test',{
+            method: "POST",
+            body: JSON.stringify({ username: "example" }),
+            headers: myHeaders
+        });
+        console.log(response);
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+
+
 async function send() {
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -25,11 +45,11 @@ async function send() {
     const response = await fetch("/api/test", {
         method: "POST",
         body: JSON.stringify({ username: "example" }),
-        headers: myHeaders,
+        headers: myHeaders
     });
 }
 
-document.querySelector("#submitButton").addEventListener('click',send,false);
+document.querySelector("#submitButton").addEventListener('click',getUser,false);
 
 
 
