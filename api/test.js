@@ -1,7 +1,7 @@
 export async function POST(request) {
-    const { body } = await request.json();
+    const { body } = await request.body;
 
     let res = await new Response(body);
 
-    return res;
+    return JSON.stringify(res);
 }
