@@ -27,8 +27,8 @@ async function getUser() {
     try {
         const response = await axios.post('/api/test',{
             method: "POST",
-            body: JSON.stringify({ banana : "example" }),
-            headers: {'content-type':'application/json'}
+            body: "kalamazoo",
+            headers: {'content-type':'text'}
         });
         console.log(response);
     } catch (error) {
