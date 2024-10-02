@@ -21,13 +21,13 @@ document.querySelector('#app').innerHTML = `
 `
 
 async function getUser() {
-    const myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
+    // const myHeaders = new Headers();
+    // myHeaders.append("Content-Type", "application/json");
 
     try {
         const response = await axios.post('/api/test',{
             method: "POST",
-            body: JSON.stringify({ name : "example" }),
+            body: JSON.stringify({ banana : "example" }),
             headers: {'content-type':'application/json'}
         });
         console.log(response);
