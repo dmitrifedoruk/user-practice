@@ -3,5 +3,5 @@ export async function POST(request) {
 
     let res = await new Response(body);
 
-    return JSON.stringify(res);
+    return res;
 }
