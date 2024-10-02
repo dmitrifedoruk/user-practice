@@ -1,5 +1,6 @@
 import './style.css'
 import bcrypt from 'bcryptjs';
+import fetch from 'node-fetch';
 import axios from "axios";
 
 
@@ -39,8 +40,8 @@ async function getUser() {
 
 
 async function send() {
-    const myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
+    // const myHeaders = new Headers();
+    // myHeaders.append("Content-Type", "application/json");
 
     const response = await fetch("/api/test", {
         method: "POST",
@@ -49,7 +50,7 @@ async function send() {
     });
 }
 
-document.querySelector("#submitButton").addEventListener('click',getUser,false);
+document.querySelector("#submitButton").addEventListener('click',send,false);
 
 
 
