@@ -27,7 +27,7 @@ async function getUser() {
     try {
         const response = await axios.post('/api/test',{
             method: "POST",
-            body: JSON.stringify({ "username" : "example" }),
+            body: JSON.stringify({ username : "example" }),
             headers: {'content-type':'application/json'}
         });
         console.log(response);
