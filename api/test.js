@@ -1,5 +1,5 @@
 export async function POST(request) {
-    const { body } = request;
+    const { body } = await request;
 
-    return new Response(`Hello ${body}, you just parsed the request body!`);
+    let res = await new Response(`Hello ${body}, you just parsed the request body!`);
 }

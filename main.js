@@ -27,8 +27,8 @@ async function getUser() {
     try {
         const response = await axios.post('/api/test',{
             method: "POST",
-            body: JSON.stringify({ username: "example" }),
-            headers: myHeaders
+            body: JSON.stringify({ "username" : "example" }),
+            headers: {'content-type':'application/json'}
         });
         console.log(response);
     } catch (error) {
@@ -44,7 +44,7 @@ async function send() {
 
     const response = await fetch("/api/test", {
         method: "POST",
-        body: JSON.stringify({ username: "example" }),
+        body: JSON.stringify({ "username" : "example" }),
         headers: {'content-type':'application/json'}
     });
 }
