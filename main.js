@@ -45,7 +45,7 @@ async function send() {
     const response = await fetch("/api/test", {
         method: "POST",
         body: JSON.stringify({ username: "example" }),
-        headers: myHeaders
+        contentType: "application/json"
     });
 }
 
