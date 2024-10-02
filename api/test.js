@@ -1,7 +1,7 @@
 export async function POST(request) {
-    const { body } = await request;
+    const { req } = await request;
 
-    let res = await new Response(body);
+    let res = await new Response(req.body);
 
     return res;
 }
