@@ -49,7 +49,7 @@ async function send() {
     });
 }
 
-document.querySelector("#submitButton").addEventListener('click',send,false);
+document.querySelector("#submitButton").addEventListener('click',getUser,false);
 
 
 
