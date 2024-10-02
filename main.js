@@ -1,6 +1,5 @@
 import './style.css'
 import bcrypt from 'bcryptjs';
-import fetch from 'node-fetch';
 import axios from "axios";
 
 
