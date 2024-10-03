@@ -4,9 +4,9 @@ export async function POST(request) {
 
     const body = req.body;
 
-    // let data = JSON.parse(body);
+    let data = JSON.parse(body);
 
-    let name = body.banana;
+    let name = data.banana;
 
     let temp = name + " kalamazoo";
 
