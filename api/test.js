@@ -3,11 +3,11 @@ export async function POST(request) {
 
     const data = req.body;
 
-    let name = data.banana;
+    let name = data.get("banana");
 
-    // let temp = name + " kalamazoo";
+    let temp = name + " kalamazoo";
 
-    let res = await new Response(data);
+    let res = await new Response(temp);
 
     return res;
 }
