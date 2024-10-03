@@ -1,6 +1,6 @@
-export async function POST(request) {
+import { bcrypt } from 'bcryptjs';
 
-    import bcrypt from 'bcryptjs';
+export async function POST(request) {
 
     const req = await request.json();
 
