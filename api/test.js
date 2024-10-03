@@ -7,7 +7,7 @@ export async function POST(request) {
 
     // let temp = name + " kalamazoo";
 
-    let res = await new Response(name);
+    let res = await new Response(JSON.stringify(name));
 
     return res;
 }
