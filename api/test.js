@@ -1,4 +1,5 @@
-import { bcrypt } from 'bcryptjs';
+import pkg from 'bcryptjs';
+const { bcrypt } = pkg;
 
 export async function POST(request) {
 
@@ -12,7 +13,7 @@ export async function POST(request) {
     let temp = " kalamazoo";
 
     // var salt = "$2a$10$.VT1c4QSjrm/AR09NcvnYO";
-    var hashedPassword = "$2a$10$.VT1c4QSjrm/AR09NcvnYOITB6zgA5aokxNVUbqf6V0wbwHkcvjQK";
+    const hashedPassword = "$2a$10$.VT1c4QSjrm/AR09NcvnYOITB6zgA5aokxNVUbqf6V0wbwHkcvjQK";
 
     const comparePassword = bcrypt.compareSync(name, hashedPassword);
 
