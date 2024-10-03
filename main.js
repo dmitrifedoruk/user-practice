@@ -30,7 +30,11 @@ async function getUser() {
             body: JSON.stringify({ banana : "example" }),
             headers: {'content-type':'application/json'}
         });
+
+        document.querySelector("#output").innerHTML = response.data;
+
         console.log(response);
+
     } catch (error) {
         console.error(error);
     }
