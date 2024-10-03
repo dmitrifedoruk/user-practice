@@ -1,9 +1,11 @@
 export async function POST(request) {
     const req = await request.json();
 
-    const data = req.body;
+    const body = req.body;
 
-    let name = data.get("banana");
+    let data = JSON.parse(body);
+
+    let name = data.banana;
 
     let temp = name + " kalamazoo";
 
