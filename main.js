@@ -20,14 +20,14 @@ document.querySelector('#app').innerHTML = `
   </div>
 `
 
-async function getUser() {
+async function getUser(pw) {
     // const myHeaders = new Headers();
     // myHeaders.append("Content-Type", "application/json");
 
     try {
         const response = await axios.post('/api/test',{
             method: "POST",
-            body: JSON.stringify({ banana : "example" }),
+            body: JSON.stringify({ banana : pw }),
             headers: {'content-type':'application/json'}
         });
 
@@ -53,13 +53,13 @@ async function send() {
     });
 }
 
-document.querySelector("#submitButton").addEventListener('click',getUser,false);
+// document.querySelector("#submitButton").addEventListener('click',getUser,false);
 
 
 
 
-// document.querySelector("#submitButton").addEventListener('click',() =>
-// login(document.querySelector("#password").value));
+document.querySelector("#submitButton").addEventListener('click',() =>
+getUser(document.querySelector("#password").value),false);
 
 
 // function test(pw) {
@@ -71,7 +71,7 @@ document.querySelector("#submitButton").addEventListener('click',getUser,false);
 // }
 
 // function login(password) {
-//     // var salt = "$2a$10$.VT1c4QSjrm/AR09NcvnYO";
+//     var salt = "$2a$10$.VT1c4QSjrm/AR09NcvnYO";
 //     var hashedPassword = "$2a$10$.VT1c4QSjrm/AR09NcvnYOITB6zgA5aokxNVUbqf6V0wbwHkcvjQK";
 //
 //     const comparePassword = bcrypt.compareSync(password, hashedPassword);
