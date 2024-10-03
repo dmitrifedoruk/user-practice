@@ -1,5 +1,5 @@
 export async function POST(request) {
-    const req = await request.json();
+    const body = await request.body.json();
 
     const data = JSON.parse(req);
 
@@ -7,7 +7,7 @@ export async function POST(request) {
 
     // let temp = name + " kalamazoo";
 
-    let res = await new Response(JSON.stringify(name));
+    let res = await new Response(name);
 
     return res;
 }
