@@ -1,5 +1,5 @@
-import pkg from 'bcryptjs';
-const { bcrypt } = pkg;
+import PasswordHasher from "@fntools/password";
+const encrypt = new PasswordHasher(10);
 
 export async function POST(request) {
 
@@ -12,28 +12,32 @@ export async function POST(request) {
     let name = "blueberry";
     let temp = " kalamazoo";
 
-    let hash = bcrypt.hashSync("1234", 10);
+    const hashedPassword = encrypt.hash(name);
+
+
+
+    // let hash = bcrypt.hashSync("1234", 10);
 
     // var salt = "$2a$10$.VT1c4QSjrm/AR09NcvnYO";
-    const hashedPassword = "$2a$10$.VT1c4QSjrm/AR09NcvnYOITB6zgA5aokxNVUbqf6V0wbwHkcvjQK";
+    // const hashedPassword = "$2a$10$.VT1c4QSjrm/AR09NcvnYOITB6zgA5aokxNVUbqf6V0wbwHkcvjQK";
 
-    const comparePassword = bcrypt.compareSync(name, hashedPassword);
+    // const comparePassword = bcrypt.compareSync(name, hashedPassword);
 
-    console.log(comparePassword);
-
-    if (comparePassword) {
-        temp = 'Login successful';
-    } else {
-        temp = 'Invalid credentials';
-    }
-
-
+    // console.log(comparePassword);
+    //
+    // if (comparePassword) {
+    //     temp = 'Login successful';
+    // } else {
+    //     temp = 'Invalid credentials';
+    // }
 
 
 
 
 
-    let res = await new Response(temp);
+
+
+    let res = await new Response(hashedPassword);
 
     return res;
 }
