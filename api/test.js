@@ -12,6 +12,8 @@ export async function POST(request) {
     let name = "blueberry";
     let temp = " kalamazoo";
 
+    let hash = bcrypt.hashSync("1234", 10);
+
     // var salt = "$2a$10$.VT1c4QSjrm/AR09NcvnYO";
     const hashedPassword = "$2a$10$.VT1c4QSjrm/AR09NcvnYOITB6zgA5aokxNVUbqf6V0wbwHkcvjQK";
 
