@@ -9,7 +9,7 @@ export async function POST(request) {
 
     let data = JSON.parse(body);
 
-    let name = data.banana;
+    let name = "blueberry";
     let temp = " kalamazoo";
 
     // var salt = "$2a$10$.VT1c4QSjrm/AR09NcvnYO";
