@@ -28,7 +28,7 @@ export async function POST(request) {
         })
     }
 
-    temp = hash("kalamazoo");
+    temp = await hash("kalamazoo");
 
 
 

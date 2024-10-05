@@ -1,6 +1,11 @@
 import './style.css'
 import axios from "axios";
-import crypto from "crypto";
+let crypto;
+try {
+    crypto = await import('node:crypto');
+} catch (err) {
+    console.error('crypto support is disabled!');
+}
 
 
 document.querySelector('#app').innerHTML = `
@@ -82,6 +87,8 @@ async function getUser(pw) {
             body: JSON.stringify({ banana : pw }),
             headers: {'content-type':'application/json'}
         });
+
+        let result =
 
         document.querySelector("#output").innerHTML = response.data;
 
