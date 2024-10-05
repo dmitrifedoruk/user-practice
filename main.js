@@ -1,6 +1,6 @@
 import './style.css'
-import bcrypt from 'bcryptjs';
 import axios from "axios";
+import crypto from "crypto";
 
 
 document.querySelector('#app').innerHTML = `
@@ -19,6 +19,58 @@ document.querySelector('#app').innerHTML = `
 
   </div>
 `
+
+// const crypto = require("crypto")
+
+async function hash(password) {
+    return new Promise((resolve, reject) => {
+        // generate random 16 bytes long salt
+        const salt = crypto.randomBytes(16).toString("hex")
+
+        crypto.scrypt(password, salt, 64, (err, derivedKey) => {
+            if (err) reject(err);
+            resolve(salt + ":" + derivedKey.toString('hex'))
+        });
+    })
+}
+
+console.log(hash("blueberry"));
+
+
+
+// import { scrypt, randomBytes, timingSafeEqual } from "crypto";
+// // import { promisify } from "util";
+//
+// // scrypt is callback based so with promisify we can await it
+// // const scryptAsync = promisify(scrypt);
+//
+// export class Password {
+//
+//     static async hashPassword(password) {
+//         const salt = randomBytes(16).toString("hex");
+//         const buf = (await scryptAsync(password, salt, 64));
+//         return `${buf.toString("hex")}.${salt}`;
+//     }
+//
+//     static async comparePassword(storedPassword, suppliedPassword){
+//         // split() returns array
+//         const [hashedPassword, salt] = storedPassword.split(".");
+//         // we need to pass buffer values to timingSafeEqual
+//         const hashedPasswordBuf = Buffer.from(hashedPassword, "hex");
+//         // we hash the new sign-in password
+//         const suppliedPasswordBuf = (await scryptAsync(suppliedPassword, salt, 64));
+//         // compare the new supplied password with the stored hashed password
+//         return timingSafeEqual(hashedPasswordBuf, suppliedPasswordBuf);
+//     }
+// }
+//
+// Password.hashPassword("123dafdas")
+//     .then((res) => Password.comparePassword(res, "123edafdas"))
+//     .then((res) => console.log(res));
+
+
+
+
 
 async function getUser(pw) {
     // const myHeaders = new Headers();
